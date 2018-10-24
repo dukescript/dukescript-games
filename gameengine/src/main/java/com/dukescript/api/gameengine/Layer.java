@@ -23,8 +23,6 @@
 package com.dukescript.api.gameengine;
 
 import com.dukescript.api.canvas.GraphicsContext2D;
-import com.dukescript.canvas.html.HTML5GraphicsEnvironment;
-import com.dukescript.spi.canvas.GraphicsUtils;
 import net.java.html.js.JavaScriptBody;
 
 /**
@@ -49,7 +47,7 @@ public abstract class Layer {
         this.name = name;
         createCanvas(name);
         
-        graphicsContext = GraphicsUtils.getOrCreate(new HTML5GraphicsEnvironment(), name);
+        graphicsContext = GraphicsContext2D.getOrCreate(name);
     }
 
     public abstract void draw(double x, double y, double width, double height);

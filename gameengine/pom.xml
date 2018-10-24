@@ -9,11 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>gameengine</artifactId>
     <name>gameengine</name>
-    <packaging>bundle</packaging>
-    
-    <properties>
-        <publicPackages>com.dukescript.api.*:com.dukescript.spi.*</publicPackages>
-    </properties>
+    <packaging>jar</packaging>
     
     <build>
         <plugins>
@@ -31,17 +27,6 @@
                 </executions>            
             </plugin>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-
-                <configuration>
-                    <instructions>
-                        <Eclipse-BuddyPolicy>dependent</Eclipse-BuddyPolicy>
-                    </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
@@ -50,18 +35,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apidesign.bck2brwsr</groupId>
-                <artifactId>bck2brwsr-maven-plugin</artifactId>
-                <version>${bck2brwsr.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>library</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+           
         </plugins>
     </build>
     <dependencies>
@@ -84,7 +58,7 @@
         </dependency>
         <dependency>
             <groupId>com.dukescript.canvas</groupId>
-            <artifactId>html5-canvas</artifactId>
+            <artifactId>canvas-api</artifactId>
             <version>${com.dukescript.canvas.version}</version>
         </dependency>
     </dependencies>

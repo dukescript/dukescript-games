@@ -41,5 +41,6 @@ public class ImageLayer extends Layer {
     @Override
     public void draw( double x, double y, double width, double height) {
         graphicsContext.drawImage(image, 0, 0);
+        setDirty(false);
     }
 }

@@ -22,10 +22,8 @@
  */
 package com.dukescript.api.gameengine;
 
-import java.util.ServiceLoader;
 import com.dukescript.api.canvas.GraphicsContext2D;
 import com.dukescript.canvas.html.HTML5GraphicsEnvironment;
-import com.dukescript.spi.canvas.GraphicsEnvironment;
 import com.dukescript.spi.canvas.GraphicsUtils;
 import net.java.html.js.JavaScriptBody;
 
@@ -40,6 +38,7 @@ public abstract class Layer {
     private boolean visible = true;
     private float parallaxFactor = 1;
     protected final GraphicsContext2D graphicsContext;
+    private boolean dirty = true;
 
     // required for serialization
     public Layer() {
@@ -49,7 +48,7 @@ public abstract class Layer {
     public Layer(String name) {
         this.name = name;
         createCanvas(name);
-   
+        
         graphicsContext = GraphicsUtils.getOrCreate(new HTML5GraphicsEnvironment(), name);
     }
 
@@ -96,5 +95,13 @@ public abstract class Layer {
             + "var gameDiv = document.getElementById('game-canvas');"
             + "gameDiv.appendChild(canvas);")
     public static native void createCanvas(String name);
+
+    protected void setDirty(boolean dirty) {
+        this.dirty = dirty;
+    }
+
+    boolean isDirty() {
+        return dirty;
+    }
 
 }

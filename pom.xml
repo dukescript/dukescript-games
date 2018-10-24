@@ -41,7 +41,7 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
-        <com.dukescript.canvas.version>0.7.1</com.dukescript.canvas.version>
+        <com.dukescript.canvas.version>0.7.2</com.dukescript.canvas.version>
         <net.java.html.version>1.1</net.java.html.version>
         <bck2brwsr.version>0.13</bck2brwsr.version>
         <maven.compiler.source>1.6</maven.compiler.source>
@@ -55,7 +55,6 @@
 
     <name>DukeScriptGameEngine</name>
     <modules>
-        <module>jquery</module>
         <module>gameengine</module>
         <!--        <module>physicsengine</module>
         <module>tileengine</module>

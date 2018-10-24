@@ -74,14 +74,14 @@ public  class EventDispatcher {
 
     private static void validateEventType(final Event.Type<?> eventType) {
         if (eventType == null) {
-            throw new NullPointerException("Event type must not be null");
+            throw new NullPointerException("Event type cannot be null");
         }
     }
 
     private static void validateEventHandler(
             final EventHandler<?> eventHandler) {
         if (eventHandler == null) {
-            throw new NullPointerException("Event handler must not be null");
+            throw new NullPointerException("Event handler cannot be null");
         }
     }
 

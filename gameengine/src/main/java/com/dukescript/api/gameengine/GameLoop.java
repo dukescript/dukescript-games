@@ -22,6 +22,9 @@
  */
 package com.dukescript.api.gameengine;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import net.java.html.BrwsrCtx;
 import net.java.html.js.JavaScriptBody;
 import net.java.html.js.JavaScriptResource;
 
@@ -34,12 +37,20 @@ public class GameLoop {
 
     private final Handler handler;
 
+    Runnable pulser = new Runnable() {
+
+        @Override
+        public void run() {
+            handler.pulse(System.currentTimeMillis());
+        }
+    };
+
     public GameLoop(Handler handler) {
         this.handler = handler;
     }
 
     public void start() {
-        startAnimation(handler);
+
     }
 
     public void stop() {
@@ -52,8 +63,7 @@ public class GameLoop {
             + "var time = date.getTime();"
             + "    handler.@com.dukescript.api.gameengine.Handler::pulse(J)(time);\n"
             + "requestAnimationFrame(Game.mainLoop);\n"
-            + "console.log('running')"
-                    + "};"
+            + "};"
             + "Game.start();")
     public static native void startAnimation(Handler handler);
 }

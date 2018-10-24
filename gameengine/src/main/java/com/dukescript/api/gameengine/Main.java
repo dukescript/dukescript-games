@@ -24,7 +24,6 @@ package com.dukescript.api.gameengine;
 
 import com.dukescript.api.gameenegine.event.KeyCode;
 import com.dukescript.api.gameenegine.event.KeyEvent;
-import de.eppleton.fx2d.dukescript.JQuery;
 
 import java.util.ServiceLoader;
 import net.java.html.BrwsrCtx;
@@ -57,7 +56,6 @@ public final class Main {
      */
     public static void onPageLoad() throws Exception {
         brwsrctx = BrwsrCtx.findDefault(Main.class);
-        JQuery.init();
         Data data = new Data();
         Models.applyBindings(data);
         registerKeyEvents();

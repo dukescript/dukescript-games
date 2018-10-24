@@ -37,7 +37,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
 /**
  *
  * @author antonepple
@@ -57,6 +56,9 @@ public class Level extends Screen implements Handler {
     // @TODO move to Camera
     private double cameraX;
     private double cameraY;
+    // scaling Factors
+    private double scaleX = 1;
+    private double scaleY = 1;
     // performance metrics
     private long lastPulse;
     private long timePassed;
@@ -91,12 +93,12 @@ public class Level extends Screen implements Handler {
 
     }
 
-  
+   
+
     protected void initGame() {
     }
 
     public final void start() {
-        
         if (loop == null) {
             loop = new GameLoop(this);
         }
@@ -109,6 +111,7 @@ public class Level extends Screen implements Handler {
     }
 
     public final void dispatchEvent(Event event) {
+        
         eventDispatcher.dispatchEvent(event);
     }
 
@@ -225,11 +228,11 @@ public class Level extends Screen implements Handler {
     }
 
     private void render(long delta) {
-   
+
         // draw each individual layer
         for (Layer layer : layers) {
-            if (layer.isVisible()) {
-                layer.draw( cameraX * layer.getParallaxFactor(), cameraY * layer.getParallaxFactor(), screenWidth, screenHeight);
+            if (layer.isVisible() && layer.isDirty()) {
+                layer.draw(cameraX * layer.getParallaxFactor(), cameraY * layer.getParallaxFactor(), screenWidth, screenHeight);
             }
             if (layer.getName().equals("sprites")) {
                 List<Sprite> values = new ArrayList<Sprite>(sprites.values());
@@ -241,6 +244,11 @@ public class Level extends Screen implements Handler {
                     if (isOnScreen(sprite)) {
                         graphicsContext = layer.graphicsContext;
                         graphicsContext.save();
+                        int canvasWidth = graphicsContext.getWidth();
+                        int canvasHeight = graphicsContext.getHeight();
+                         scaleX = canvasWidth / screenWidth;
+                         scaleY = canvasHeight / screenHeight;
+                        graphicsContext.scale(scaleX, scaleY);
                         graphicsContext.translate(x - cameraX,
                                 y - cameraY);
                         sprite.drawSprite(graphicsContext, alpha, delta);
@@ -393,6 +401,8 @@ public class Level extends Screen implements Handler {
         }
         return false;
     }
+
+  
 
     public interface MoveValidator {
 

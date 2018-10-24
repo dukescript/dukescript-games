@@ -56,9 +56,7 @@ public class Event extends EventObject{
 
         public Type getSuperType() {
             return superType;
-        }
-       
-        
+        }    
         
     }
     

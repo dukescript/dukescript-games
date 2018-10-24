@@ -20,7 +20,7 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-package com.dukescript.impl.gameengine.assets;
+package com.dukescript.api.gameengine;
 
 
 /**

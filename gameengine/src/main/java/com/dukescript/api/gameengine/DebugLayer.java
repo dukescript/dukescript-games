@@ -47,7 +47,6 @@ public class DebugLayer extends Layer{
 
     @Override
     public void draw( double x, double y, double width, double height) {
-        
         graphicsContext.clearRect(0, 0, width, height);
 //        graphicsContext.setFont(Font.font("Monospaced", FontWeight.BOLD, 10));
         graphicsContext.setFillStyle(fill);

@@ -22,9 +22,6 @@
  */
 package com.dukescript.api.gameengine;
 
-import java.util.Timer;
-import java.util.TimerTask;
-import net.java.html.BrwsrCtx;
 import net.java.html.js.JavaScriptBody;
 import net.java.html.js.JavaScriptResource;
 
@@ -50,7 +47,7 @@ public class GameLoop {
     }
 
     public void start() {
-
+        startAnimation(handler);
     }
 
     public void stop() {

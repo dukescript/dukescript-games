@@ -108,15 +108,15 @@ public class EventRegistration {
     @JavaScriptBody(args = {}, javacall = true, body
             = "var game = document.getElementById('game-canvas');\n"
             + "game.addEventListener('keypress', function (event) {\n"
-            + "   event.preventDefault();\n"
+//            + "   event.preventDefault();\n"
             + "  @com.dukescript.api.gameengine.GameView::keyPress(I)(event.keyCode);"
             + "});\n"
             + "game.addEventListener('keyup', function (event) {\n"
-            + "   event.preventDefault();\n"
+//            + "   event.preventDefault();\n"
             + "  @com.dukescript.api.gameengine.GameView::keyUp(I)(event.keyCode);"
             + "});\n"
             + "game.addEventListener('keydown', function (event) {\n"
-            + "   event.preventDefault();\n"
+//            + "   event.preventDefault();\n"
             + "  @com.dukescript.api.gameengine.GameView::keyDown(I)(event.keyCode);"
             + "});\n"
     )

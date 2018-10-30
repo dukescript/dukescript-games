@@ -34,14 +34,6 @@ public class GameLoop {
 
     private final Handler handler;
 
-    Runnable pulser = new Runnable() {
-
-        @Override
-        public void run() {
-            handler.pulse(System.currentTimeMillis());
-        }
-    };
-
     public GameLoop(Handler handler) {
         this.handler = handler;
     }

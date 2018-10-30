@@ -246,8 +246,10 @@ public class Level extends Screen implements Handler {
                         graphicsContext.save();
                         int canvasWidth = graphicsContext.getWidth();
                         int canvasHeight = graphicsContext.getHeight();
+                        graphicsContext.clearRect(0, 0, canvasWidth, canvasHeight);
                          scaleX = canvasWidth / screenWidth;
                          scaleY = canvasHeight / screenHeight;
+                         
                         graphicsContext.scale(scaleX, scaleY);
                         graphicsContext.translate(x - cameraX,
                                 y - cameraY);

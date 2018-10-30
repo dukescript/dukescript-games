@@ -22,8 +22,6 @@
  */
 package com.dukescript.api.gameengine;
 
-import com.dukescript.api.canvas.GraphicsContext2D;
-
 
 
 /**

@@ -46,7 +46,7 @@ public class DefaultMoveBehavior extends Behavior {
     public boolean perform(Level canvas, long l) {
 //        boolean dirty;
         if (delay == -1) {
-            delay = 16666667;
+            delay = 17l;
         } else {
             delay = l - lastUpdate;
         }
@@ -62,7 +62,7 @@ public class DefaultMoveBehavior extends Behavior {
 
     private boolean updateSpritePosition(Sprite sprite) {
         boolean dirty = true;
-        factor = (double) delay / 166667;
+        factor = (double) delay / 17;
         double velocityX = sprite.getVelocityX() * factor;
         double velocityY = sprite.getVelocityY() * factor;
         if (velocityX == 0 && velocityY == 0) {
@@ -76,6 +76,7 @@ public class DefaultMoveBehavior extends Behavior {
         if (isValidMove(newX + moveBox.getMinX(), newY + moveBox.getMinY(), moveBox.getWidth(), moveBox.getHeight())) {
             sprite.setX(newX);
             sprite.setY(newY);
+//            System.out.println("x: "+x+"->"+newX);
         } else {
             sprite.invalidMove();
             dirty = false;

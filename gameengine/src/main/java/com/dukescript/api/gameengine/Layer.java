@@ -88,8 +88,8 @@ public abstract class Layer {
             = "var canvas = document.createElement('canvas');"
             + "canvas.id = name;"
             + "canvas.className += 'layer';"
-            + "canvas.width = window.innerWidth;\n"
-            + "canvas.height = window.innerHeight;"
+            + "canvas.width = 800;\n"
+            + "canvas.height = 600;"
             + "var gameDiv = document.getElementById('game-canvas');"
             + "gameDiv.appendChild(canvas);")
     public static native void createCanvas(String name);
